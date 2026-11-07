@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.SobrePag.Sobre">
+    <Border BackgroundColor="Black" 
+        StrokeShape="RoundRectangle 10" 
+        Padding="20" 
+        Margin="10,20"
+        WidthRequest="320"
+        HeightRequest="320">
+        <Border.Shadow>
+            <Shadow Brush="Black"
+                Opacity="0.6"
+                Radius="25"
+                Offset="1,1">
+            </Shadow>
+        </Border.Shadow>
+        <VerticalStackLayout Spacing="10">
+            <Label Text="Sobre o Aplicativo"
+               FontSize="35"
+               FontFamily="Star"
+               TextColor="#4357CC"
+               Margin="0, 10"/>
+            <Label Text="O Hotel Miragem Azul é um aplicativo desenvolvido para simular reservas e calcular diárias de forma rápida e intuitiva."
+               TextColor="White"
+               />
+            <Button Text="Voltar"
+                    TextColor="White"
+                    BackgroundColor="#4357CC"
+                    Clicked="Button_Voltar_Clicked"/>
+        </VerticalStackLayout>
+    </Border>
+</ContentPage>

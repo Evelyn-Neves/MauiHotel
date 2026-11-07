@@ -15,6 +15,8 @@ namespace MauiAppHotel
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("blue-water.otf", "Water font");
                     fonts.AddFont("arial-narrow.ttf", "Arial Narrow");
+                    fonts.AddFont("starshines.ttf", "Star");
+                    fonts.AddFont("starshines.otf", "Star-otf");
                 });
              
 #if DEBUG

@@ -1,0 +1,14 @@
+namespace MauiAppHotel.SobrePag;
+
+public partial class Sobre : ContentPage
+{
+	public Sobre()
+	{
+		InitializeComponent();
+	}
+
+    private async void Button_Voltar_Clicked(object sender, EventArgs e)
+    {
+		await Navigation.PopAsync();
+    }
+}

@@ -4,124 +4,131 @@
              x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
              Title="ContratacaoHospedagem"
              NavigationPage.HasNavigationBar="False" BackgroundColor="White">
-
-    <Grid RowDefinitions="Auto, *, Auto">
-        <Grid.Resources>
-            <Style TargetType="Label">
-                <Setter Property="TextColor" Value="White"/>
-            </Style>
-        </Grid.Resources>
+    <ScrollView>
         <VerticalStackLayout>
-            <Label Text="Hotel Miragem Azul"
-               FontSize="50"
-               FontFamily="Water font"
-               TextColor="#4357CC"
-               Margin="10"/>
+            <Grid RowDefinitions="Auto, Auto, Auto">
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="White"/>
+                    </Style>
+                </Grid.Resources>
+                <VerticalStackLayout>
+                    <Label Text="Hotel Miragem Azul"
+                       FontSize="50"
+                       FontFamily="Water font"
+                       TextColor="#4357CC"
+                       Margin="10"/>
 
-            <Label 
-            Text="Cálculo da Diária"
-            FontFamily="Arial Narrow"
-            FontSize="25"
-            TextColor="#4357CC"
-            Grid.Row="0"
-            Margin="20, 0, 0, 30"/>
+                    <Label 
+                    Text="Cálculo da Diária"
+                    FontFamily="Arial Narrow"
+                    FontSize="25"
+                    TextColor="#4357CC"
+                    Grid.Row="0"
+                    Margin="20, 0, 0, 30"/>
 
-        </VerticalStackLayout>
+                </VerticalStackLayout>
 
-        <Border Padding="20"
-                Grid.Row="1"
-                Stroke="#4357CC"
-                BackgroundColor="Black"
-                WidthRequest="319"
-                HeightRequest="450"
-                StrokeShape="RoundRectangle 10"
-                Margin="0, 0, 0, 20">
-            <Border.Shadow>
-                <Shadow Brush="Black"
-                        Opacity="0.5"
-                        Offset="1,1"
-                        Radius="25"/>
-            </Border.Shadow>
-            <VerticalStackLayout>
-                <Grid RowDefinitions="Auto, Auto"
-                      ColumnDefinitions="*,*,2*">
-
-                    <Label Grid.Row="0" Grid.Column="0" Text="Adultos: "
-                           Margin="5"/>
-
-                    <Label Grid.Row="0" Grid.Column="1"
-                             Text="{Binding Value}" 
-                           BindingContext="{x:Reference stp_Adultos}"/>
-
-                    <Border Grid.Row="0" Grid.Column="2"
-                            BackgroundColor="#7D66F5"
-                            Padding="2"
-                            StrokeShape="RoundRectangle 10"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Center">
-                    <Stepper Grid.Row="0" Grid.Column="2" 
-                             x:Name="stp_Adultos"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1"/>
-                    </Border>
-                    <Label Grid.Row="1" Grid.Column="0" Text="Crianças: "
-                            Margin="5"/>
-
-                    <Label Grid.Row="1" Grid.Column="1"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_Crianças}"/>
-                    <Border Grid.Row="1" Grid.Column="2"
-                            BackgroundColor="#7D66F5" 
-                            StrokeShape="RoundRectangle 10" 
-                            Padding="2" 
-                            HorizontalOptions="Center" 
-                            VerticalOptions="Center" 
-                            Margin="5">
-                        <Stepper Grid.Row="1" Grid.Column="2"
-                                 x:Name="stp_Crianças"
-                                 Minimum="0"
-                                 Maximum="10"
-                                 Increment="1"/>
-                    </Border>
-                </Grid>
-
-                <Label Text="Escolha sua Suíte" FontFamily="Arial Narrow" 
-                       TextColor="White"
-                       Margin="0, 10"/>
-
-                <Picker x:Name="pck_quarto"
-                        Title="Selecione sua Acomodação" TitleColor="White"/>
-
-                <Border Padding="10"
-                       Margin="10">
+                <Border Padding="20"
+                        Grid.Row="1"
+                        Stroke="#4357CC"
+                        BackgroundColor="Black"
+                        WidthRequest="319"
+                        HeightRequest="510"
+                        StrokeShape="RoundRectangle 10"
+                        Margin="0, 0, 0, 20">
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Offset="1,1"
+                                Radius="25"/>
+                    </Border.Shadow>
                     <VerticalStackLayout>
-                        <Label Text="Período da Estadia"
-                               FontSize="30"
-                               FontFamily="Arial Narrow"
-                               TextColor="#4357CC"/>
-                        <HorizontalStackLayout>
-                            <Label Text="Check-in:"
-                                   Margin="10"/>
-                            <DatePicker x:Name="dtpck_checkin"
-                                        Format="dd/MM/yyyy" TextColor="White"/>
-                        </HorizontalStackLayout>
+                        <Grid RowDefinitions="Auto, Auto"
+                              ColumnDefinitions="*,*,2*">
 
-                        <HorizontalStackLayout>
-                            <Label Text="Check-out:"
-                                   Margin="10"/>
-                            <DatePicker x:Name="dtpck_checkout"
-                                        Format="dd/MM/yyyy" TextColor="White"/>
-                        </HorizontalStackLayout>
+                            <Label Grid.Row="0" Grid.Column="0" Text="Adultos: "
+                                   Margin="5"/>
+
+                            <Label Grid.Row="0" Grid.Column="1"
+                                     Text="{Binding Value}" 
+                                   BindingContext="{x:Reference stp_Adultos}"/>
+
+                            <Border Grid.Row="0" Grid.Column="2"
+                                    BackgroundColor="#7D66F5"
+                                    Padding="2"
+                                    StrokeShape="RoundRectangle 10"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center">
+                                <Stepper Grid.Row="0" Grid.Column="2" 
+                                     x:Name="stp_Adultos"
+                                     Minimum="0"
+                                     Maximum="10"
+                                     Increment="1"/>
+                            </Border>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Crianças: "
+                                    Margin="5"/>
+
+                            <Label Grid.Row="1" Grid.Column="1"
+                                   Text="{Binding Value}"
+                                   BindingContext="{x:Reference stp_Crianças}"/>
+                            <Border Grid.Row="1" Grid.Column="2"
+                                    BackgroundColor="#7D66F5" 
+                                    StrokeShape="RoundRectangle 10" 
+                                    Padding="2" 
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    Margin="5">
+                                <Stepper Grid.Row="1" Grid.Column="2"
+                                         x:Name="stp_Crianças"
+                                         Minimum="0"
+                                         Maximum="10"
+                                         Increment="1"/>
+                            </Border>
+                        </Grid>
+
+                        <Label Text="Escolha sua Suíte" FontFamily="Arial Narrow" 
+                               TextColor="White"
+                               Margin="0, 10"/>
+
+                        <Picker x:Name="pck_quarto"
+                                Title="Selecione sua Acomodação" TitleColor="White"/>
+
+                        <Border Padding="10"
+                               Margin="10">
+                            <VerticalStackLayout>
+                                <Label Text="Período da Estadia"
+                                       FontSize="30"
+                                       FontFamily="Arial Narrow"
+                                       TextColor="#4357CC"/>
+                                <HorizontalStackLayout>
+                                    <Label Text="Check-in:"
+                                           Margin="10"/>
+                                    <DatePicker x:Name="dtpck_checkin"
+                                                Format="dd/MM/yyyy" TextColor="White"/>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout>
+                                    <Label Text="Check-out:"
+                                           Margin="10"/>
+                                    <DatePicker x:Name="dtpck_checkout"
+                                                Format="dd/MM/yyyy" TextColor="White"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Button Text="Avançar" BackgroundColor="#4357CC"/>
+
+                        <Label Text="Projeto Acadêmico - NET MAUI"
+                               TextColor="White"/>
+                        <Label Text="Desenvolvido por Evelyn © 2026"
+                            TextColor="White"/>
+                        <Button Text="Sobre"
+                                Clicked="Button_Sobre_Clicked"
+                                Background="Transparent"
+                                TextColor="#4357CC"/>
                     </VerticalStackLayout>
                 </Border>
-                <Button Text="Avançar" BackgroundColor="#4357CC"/>
-
-                <HorizontalStackLayout HorizontalOptions="Center">
-                    <Label Text="Desenvolvido por Evelyn no ano de 2026!"
-                           Margin="10"/>
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-        </Border>
-    </Grid>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
