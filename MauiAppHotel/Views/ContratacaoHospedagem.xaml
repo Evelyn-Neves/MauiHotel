@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
              Title="ContratacaoHospedagem"
-             NavigationPage.HasNavigationBar="False" BackgroundColor="White">
-    <ScrollView>
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <ScrollView> <!-- Serve para rolagem da página -->
         <VerticalStackLayout>
-            <Grid RowDefinitions="Auto, Auto, Auto">
-                <Grid.Resources>
+            <VerticalStackLayout.Resources>
                     <Style TargetType="Label">
                         <Setter Property="TextColor" Value="White"/>
                     </Style>
-                </Grid.Resources>
+                </VerticalStackLayout.Resources>
                 <VerticalStackLayout>
                     <Label Text="Hotel Miragem Azul"
                        FontSize="50"
@@ -29,12 +29,13 @@
 
                 </VerticalStackLayout>
 
+                <!--Parte Principal-->
                 <Border Padding="20"
                         Grid.Row="1"
                         Stroke="#4357CC"
                         BackgroundColor="Black"
                         WidthRequest="319"
-                        HeightRequest="510"
+                        HeightRequest="550"
                         StrokeShape="RoundRectangle 10"
                         Margin="0, 0, 0, 20">
                     <Border.Shadow>
@@ -71,7 +72,7 @@
 
                             <Label Grid.Row="1" Grid.Column="1"
                                    Text="{Binding Value}"
-                                   BindingContext="{x:Reference stp_Crianças}"/>
+                                   BindingContext="{x:Reference stp_criancas}"/>
                             <Border Grid.Row="1" Grid.Column="2"
                                     BackgroundColor="#7D66F5" 
                                     StrokeShape="RoundRectangle 10" 
@@ -80,7 +81,7 @@
                                     VerticalOptions="Center" 
                                     Margin="5">
                                 <Stepper Grid.Row="1" Grid.Column="2"
-                                         x:Name="stp_Crianças"
+                                         x:Name="stp_criancas"
                                          Minimum="0"
                                          Maximum="10"
                                          Increment="1"/>
@@ -92,7 +93,8 @@
                                Margin="0, 10"/>
 
                         <Picker x:Name="pck_quarto"
-                                Title="Selecione sua Acomodação" TitleColor="White"/>
+                                Title="Selecione sua Acomodação" TitleColor="Gray"
+                                ItemDisplayBinding="{Binding Descricao}"/>
 
                         <Border Padding="10"
                                Margin="10">
@@ -104,9 +106,11 @@
                                 <HorizontalStackLayout>
                                     <Label Text="Check-in:"
                                            Margin="10"/>
-                                    <DatePicker x:Name="dtpck_checkin"
-                                                Format="dd/MM/yyyy" TextColor="White"/>
-                                </HorizontalStackLayout>
+                                <DatePicker x:Name="dtpck_checkin"
+                                            Format="dd/MM/yyyy" 
+                                            TextColor="White"
+                                            DateSelected="dtpck_checkin_DateSelected"/>
+                            </HorizontalStackLayout>
 
                                 <HorizontalStackLayout>
                                     <Label Text="Check-out:"
@@ -116,8 +120,12 @@
                                 </HorizontalStackLayout>
                             </VerticalStackLayout>
                         </Border>
-                        <Button Text="Avançar" BackgroundColor="#4357CC"/>
+                        <!--Botão para ir para a próxima página-->
+                        <Button Text="Avançar" BackgroundColor="#4357CC"
+                                Clicked="Button_Avancar_Clicked"
+                                Margin="0, 20"/>
 
+                        <!-- Rodapé e Botão para ir para a página de sobre -->
                         <Label Text="Projeto Acadêmico - NET MAUI"
                                TextColor="White"/>
                         <Label Text="Desenvolvido por Evelyn © 2026"
@@ -128,7 +136,6 @@
                                 TextColor="#4357CC"/>
                     </VerticalStackLayout>
                 </Border>
-            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
