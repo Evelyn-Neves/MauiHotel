@@ -1,3 +1,4 @@
+using MauiAppHotel.Models;
 using MauiAppHotel.SobrePag;
 using Microsoft.Maui.Controls;
 using System;
@@ -19,14 +20,8 @@ public partial class ContratacaoHospedagem : ContentPage
         dtpck_checkin.MinimumDate = DateTime.Today;
         dtpck_checkin.MaximumDate = DateTime.Today.AddMonths(6);
 
-        DateTime date = (DateTime)dtpck_checkin.Date!;
-        DateTime data_selecionada = date;
-        DateTime dataCheckin = data_selecionada;
-
-        dtpck_checkout.MinimumDate = dataCheckin.AddDays(1);
-        dtpck_checkout.MaximumDate = dataCheckin.AddMonths(6);
-
-
+        dtpck_checkout.MinimumDate = ((DateTime)dtpck_checkin.Date!).AddDays(1);
+        dtpck_checkout.MaximumDate = ((DateTime)dtpck_checkin.Date).AddMonths(6);
     }
 
     private async void Button_Sobre_Clicked(object sender, EventArgs e)
@@ -44,7 +39,21 @@ public partial class ContratacaoHospedagem : ContentPage
     {
         try
         {
-            await Navigation.PushAsync(new HospedagemContratada());
+            Hospedagem h = new Hospedagem()
+            {
+                QuartoSelecionado = (Quarto)pck_quarto.SelectedItem,
+                QntAdultos = Convert.ToInt32(stp_Adultos.Value),
+                QntCriancas = Convert.ToInt32(stp_criancas.Value),
+                DataCheckin = dtpck_checkin.Date ?? DateTime.Today,
+                DataCheckout = dtpck_checkout.Date ?? DateTime.Today.AddDays(1),
+            };
+
+
+            await Navigation.PushAsync(new HospedagemContratada()
+            {
+                BindingContext = h
+            });
+
         }
         catch (Exception ex)
         {

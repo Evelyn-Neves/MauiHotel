@@ -11,7 +11,7 @@
                     <Style TargetType="Label">
                         <Setter Property="TextColor" Value="White"/>
                     </Style>
-                </VerticalStackLayout.Resources>
+           </VerticalStackLayout.Resources>
                 <VerticalStackLayout>
                     <Label Text="Hotel Miragem Azul"
                        FontSize="50"
@@ -45,60 +45,64 @@
                                 Radius="25"/>
                     </Border.Shadow>
                     <VerticalStackLayout>
-                        <Grid RowDefinitions="Auto, Auto"
+                    <Grid RowDefinitions="Auto, Auto"
                               ColumnDefinitions="*,*,2*">
 
-                            <Label Grid.Row="0" Grid.Column="0" Text="Adultos: "
+                        <Label Grid.Row="0" Grid.Column="0" Text="Adultos: "
                                    Margin="5"/>
 
-                            <Label Grid.Row="0" Grid.Column="1"
+                        <Label Grid.Row="0" Grid.Column="1"
                                      Text="{Binding Value}" 
                                    BindingContext="{x:Reference stp_Adultos}"/>
 
-                            <Border Grid.Row="0" Grid.Column="2"
+                        <Border Grid.Row="0" Grid.Column="2"
                                     BackgroundColor="#7D66F5"
                                     Padding="2"
                                     StrokeShape="RoundRectangle 10"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center">
-                                <Stepper Grid.Row="0" Grid.Column="2" 
+                            <Stepper Grid.Row="0" Grid.Column="2" 
                                      x:Name="stp_Adultos"
                                      Minimum="0"
                                      Maximum="10"
                                      Increment="1"/>
-                            </Border>
-                            <Label Grid.Row="1" Grid.Column="0" Text="Crianças: "
+                        </Border>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Crianças: "
                                     Margin="5"/>
 
-                            <Label Grid.Row="1" Grid.Column="1"
+                        <Label Grid.Row="1" Grid.Column="1"
                                    Text="{Binding Value}"
                                    BindingContext="{x:Reference stp_criancas}"/>
-                            <Border Grid.Row="1" Grid.Column="2"
+                        <Border Grid.Row="1" Grid.Column="2"
                                     BackgroundColor="#7D66F5" 
                                     StrokeShape="RoundRectangle 10" 
                                     Padding="2" 
                                     HorizontalOptions="Center" 
                                     VerticalOptions="Center" 
                                     Margin="5">
-                                <Stepper Grid.Row="1" Grid.Column="2"
+                            <Stepper Grid.Row="1" Grid.Column="2"
                                          x:Name="stp_criancas"
                                          Minimum="0"
                                          Maximum="10"
                                          Increment="1"/>
-                            </Border>
-                        </Grid>
-
-                        <Label Text="Escolha sua Suíte" FontFamily="Arial Narrow" 
-                               TextColor="White"
-                               Margin="0, 10"/>
-
-                        <Picker x:Name="pck_quarto"
-                                Title="Selecione sua Acomodação" TitleColor="Gray"
-                                ItemDisplayBinding="{Binding Descricao}"/>
-
-                        <Border Padding="10"
+                        </Border>
+                    </Grid>
+                    <Border>
+                        <VerticalStackLayout>
+                            <Label Text="Escolha sua Suíte" FontFamily="Arial Narrow" 
+                                   TextColor="White"
+                                   Margin="10"
+                                   TextTransform="Uppercase"
+                                   FontSize="20"/>
+                            <Picker x:Name="pck_quarto"
+                                    Title="Selecione sua Acomodação" TitleColor="Gray"
+                                    ItemDisplayBinding="{Binding Descricao}"
+                                    Margin="5"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Padding="10"
                                Margin="10">
-                            <VerticalStackLayout>
+                            <VerticalStackLayout Spacing="10">
                                 <Label Text="Período da Estadia"
                                        FontSize="30"
                                        FontFamily="Arial Narrow"
